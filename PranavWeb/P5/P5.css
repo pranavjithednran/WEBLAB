@@ -1,18 +1,35 @@
-div{
-background-color:lightblue;
-margin:auto;
-border-style:outset;
-margin:20;
-font-family: "Times New Roman", Times, serif;
+div {
+    background-color: lightblue;
+    margin: 20px;
+    padding: 15px;
+    border: 2px outset gray;
+    font-family: "Times New Roman", Times, serif;
 }
-body{
-background-color:skyblue;
+body {
+    background-color: skyblue;
 }
-form{
-padding:20;
+form {
+    padding: 10px;
 }
-fieldset{
-padding-right:40;
+fieldset {
+    padding: 15px;
+    border: 1px solid gray;
 }
-
-
+h1 {
+    color: darkblue;
+}
+input, textarea, select {
+    padding: 5px;
+    margin: 5px;
+}
+button {
+    padding: 7px 15px;
+    border: none;
+    color: white;
+}
+button[type="submit"] {
+    background-color: green;
+}
+button[type="reset"] {
+    background-color: red;
+}
