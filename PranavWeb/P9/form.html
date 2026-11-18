@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>Form</title>
+</head>
+<body>
+<center>
+<h1>Form Validation</h1>
+<form name="form" action="" onsubmit="return validateForm()">
+<label>Name:</label>
+<select name="init" id="init">
+<option value="Mr">Mr</option>
+<option value="Ms">Ms</option>
+<option value="Mrs">Mrs</option>
+</select>
+<input type="text" id="fname" name="fname"  placeholder="enter your name">
+<br><br>
+<label>Phone:</label>
+<select name="code" id="name">
+<option value="+91">+91</option>
+<option value="+44">+44</option>
+<option value="+56">+56</option>
+</select>
+<input type="tel" id="phone" name="mob" placeholder="enter your mobile number">
+<br><br>
+<label>Email:</label>
+<input type="text" id="email" name="email"  placeholder="enter your mail">
+<br><br>
+<label>Gender</label>
+<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Female">Female
+<input type="radio" name="gender" value="Other">Other
+
+<br><br>
+<label>Languages known</label>
+<input type="checkbox" name="lang" value="English">English
+<input type="checkbox" name="lang" value="Malayalam">Malayalam
+<input type="checkbox" name="lang" value="Hindi">Hindi
+
+<br><br>
+<label>Password</label>
+<input type="password" id="pass" name="fpassword" placeholder="password"><br>
+<label>Confirm Password</label>
+<input type="password" id="cpass" name="cpassword" placeholder="confirm password"> <br>
+<button type="submit">Submit</button>
+</form>
+<script>
+function validateForm(){
+var fname=document.form.fname.value.trim();
+var mob=document.form.mob.value.trim();
+var email=document.form.email.value.trim();
+var lang=document.querySelectorAll('input[name="lang"]:checked');
+var gender=document.querySelector('input[name="gender"]:checked');
+var fpassword=document.form.fpassword.value.trim();
+var cpassword=document.form.cpassword.value.trim();
+
+if(fname==""){
+  alert("enter your name");
+  document.form.fname.focus();
+  return false;
+}
+else if(!/^[a-zA-Z]+$/.test(fname)){
+  alert("enter valid name");
+  document.form.fname.focus();
+  return false;
+}
+if(mob==""){
+  alert("enter your number");
+  document.form.mob.focus();
+  return false;
+}
+else if(!/^[0-9]{10}$/.test(mob)){
+  alert("enter a valid 10 digit number");
+  document.form.mob.focus();
+  return false;
+}
+if(email==""){
+  alert("enter valid gmail");
+  document.form.email.focus();
+  return false;
+}
+else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+  alert("enter valid gmail");
+  document.form.email.focus();
+  return false;
+  }
+if(!gender){
+  alert("select a gender");
+  return false;
+}
+
+if(lang.length==0){
+  alert("select a language");
+  return false;
+}
+
+
+  if(fpassword==""){
+  alert("enter password");
+  document.form.fpassword.focus();
+  return false;
+}
+
+if(cpassword==""){
+  alert("confirm password");
+  document.form.cpassword.focus();
+  return false;
+}
+if(!/[A-Z]/.test(fpassword)){
+  alert("Password must contain capital letter");
+  return false;
+}
+else if(!/[0-9]/.test(fpassword)){
+  alert("Password must contain a number");
+  return false;
+}
+else if(!/[!@#$%^&*]/.test(fpassword)){
+  alert("Password must contain special symbol");
+  return false;
+}
+else if(!/^.{8}$/.test(fpassword)){
+ alert("Password must contain 8 letters");
+  return false;
+}
+if(fpassword!=cpassword){
+  alert("password does not match");
+  return false;
+  }
+else{
+  alert("password does  match");
+  }
+  
+alert("form submitted succefully");
+return true;
+}
+</script>
+
+</body>
+</html>
